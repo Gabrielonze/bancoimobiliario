@@ -6,6 +6,7 @@ class Game(object):
     def __init__(self):
         self.properties = []
         self.currentIndexPlayer = -1
+        self.richestPlayer = None
         self.lastPlayer = None
         self.moves = 0
         self.playing = True 
@@ -29,10 +30,14 @@ class Game(object):
                     self.lastPlayer = self.currentIndexPlayer
                     self.doMove()
 
-        # TODO: get richest player
+        self.richestPlayer = self.players[self.currentIndexPlayer]
+        for x in self.players:
+            if self.richestPlayer.wallet < x.wallet:
+                self.richestPlayer = x
+
         return {
             "moves": self.moves,
-            "winner": self.players[self.currentIndexPlayer].type
+            "winner": self.richestPlayer.type
         }
 
     def doMove(self):

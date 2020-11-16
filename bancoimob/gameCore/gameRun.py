@@ -21,12 +21,11 @@ class GameRun(object):
                 self.resultSum["timeoutRuns"] += 1
             self.resultSum[run["winner"]] += 1
             self.resultSum["avgMoves"] += run["moves"]
-
         
         self.resultSum["avgMoves"] /= self.resultSum["runs"]
-        self.resultSum["impulsive"] /= self.resultSum["runs"]
-        self.resultSum["demanding"] /= self.resultSum["runs"]
-        self.resultSum["cautious"] /= self.resultSum["runs"]
-        self.resultSum["random"] /= self.resultSum["runs"]
+        self.resultSum["impulsive"] /= self.resultSum["runs"] / 100
+        self.resultSum["demanding"] /= self.resultSum["runs"] / 100
+        self.resultSum["cautious"] /= self.resultSum["runs"] / 100
+        self.resultSum["random"] /= self.resultSum["runs"] / 100
             
         return self.resultSum
