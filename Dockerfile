@@ -27,4 +27,5 @@ RUN pipenv install --skip-lock --system --dev
 EXPOSE 8080
 CMD pipenv shell
 CMD python3 manage.py collectstatic
+CMD python3 manage.py test
 CMD gunicorn bancoimob.wsgi:application --bind 0.0.0.0:$PORT

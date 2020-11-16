@@ -7,4 +7,5 @@ class Property(object):
         self.owner = None
 
     def buy(self, newOwner):
-        self.owner = newOwner
+        if (self.owner == None):
+            self.owner = newOwner
